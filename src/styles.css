@@ -35,13 +35,6 @@ a {
     background-attachment: fixed;
 }
 
-.ascii-art {
-    color: rgba(255, 255, 255, 0.86);
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.18;
-    white-space: pre;
-}
-
 .phase-panel {
     background: linear-gradient(135deg, var(--idle-start), var(--idle-end));
     border: 3px solid rgba(255, 255, 255, 0.2);
@@ -129,11 +122,6 @@ a {
 .timer-progress > span {
     background: rgba(255, 255, 255, 0.92);
     transform-origin: left center;
-}
-
-.stat-band {
-    background: rgba(7, 12, 28, 0.36);
-    border-block: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .support-link {
