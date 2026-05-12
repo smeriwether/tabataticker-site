@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smeriwether.github.io/tabataticker-site/sitemap.xml

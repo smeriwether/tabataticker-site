@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabata Ticker - 4-Minute Tabata Timer for iPhone and Apple Watch</title>
+    <meta name="description" content="Tabata Ticker is a focused iPhone and Apple Watch timer for classic 8-round Tabata workouts: 20 seconds work, 10 seconds rest, with sound and haptic cues.">
+    <link rel="canonical" href="https://smeriwether.github.io/tabataticker-site/">
+    <meta name="theme-color" content="#088580">
+    <meta property="og:title" content="Tabata Ticker - 4-Minute Tabata Timer">
+    <meta property="og:description" content="Eight rounds. 20 seconds work. 10 seconds rest. Built for iPhone and Apple Watch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smeriwether.github.io/tabataticker-site/">
+    <meta property="og:site_name" content="Tabata Ticker">
+    <meta property="og:image" content="https://smeriwether.github.io/tabataticker-site/icon-1024.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tabata Ticker - 4-Minute Tabata Timer">
+    <meta name="twitter:description" content="A focused iPhone and Apple Watch timer for classic 20/10 Tabata workouts.">
+    <meta name="twitter:image" content="https://smeriwether.github.io/tabataticker-site/icon-1024.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="icon-180.png">
+    <link rel="stylesheet" href="dist/styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tabata Ticker",
+        "description": "A focused iPhone and Apple Watch timer for classic 8-round Tabata workouts: 20 seconds work and 10 seconds rest.",
+        "operatingSystem": "iOS, watchOS",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What workout does Tabata Ticker run?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tabata Ticker runs a fixed classic Tabata workout: 8 rounds of 20 seconds work and 10 seconds rest."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Tabata Ticker work with Apple Watch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The iPhone owns the timer, and the Apple Watch mirrors progress while sending start, pause, reset, and sound commands."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Tabata Ticker include cues?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The app uses sound cues during the final 5 work seconds and final 3 rest seconds, and the Watch pairs those cues with haptics."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="site-bg text-gray-100 min-h-screen">
+
+    <header class="container mx-auto px-6 pt-10 pb-8 text-center">
+        <img src="icon-180.png" alt="Tabata Ticker app icon" class="mx-auto mb-6 h-20 w-20 rounded-[22px] shadow-2xl">
+
+        <div class="ascii-art mb-7 overflow-hidden text-[10px] sm:text-xs">
+<pre class="inline-block text-left">╔════════════════════════╗
+║     TABATA TICKER     ║
+║     20 / 10  x  8     ║
+╚════════════════════════╝</pre>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black tracking-normal text-white">Tabata Ticker</h1>
+        <p class="mx-auto mt-5 max-w-2xl text-lg md:text-xl text-white/82">
+            A focused four-minute Tabata timer for iPhone and Apple Watch.
+        </p>
+        <p class="mx-auto mt-3 max-w-2xl text-sm md:text-base text-white/68">
+            Eight rounds. 20 seconds work. 10 seconds rest. Clear cues when it is time to switch.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div class="coming-soon rounded-xl px-7 py-4 text-center font-bold shadow-xl">
+                App Store
+                <span class="block text-sm font-semibold opacity-70">Coming Soon</span>
+            </div>
+            <a href="#timer" class="ghost-button rounded-xl px-7 py-4 font-bold">Try the Timer</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="timer" aria-label="Playable Tabata timer" class="container mx-auto px-6 py-10">
+            <div class="mx-auto max-w-lg">
+                <div id="timer-shell" class="phase-panel rounded-[28px] p-6 sm:p-8" data-phase="idle">
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-sm font-bold uppercase tracking-[0.18em] text-white/78">Classic</span>
+                        <button id="sound-toggle" class="ghost-button rounded-full px-4 py-2 text-xs font-bold" type="button" aria-pressed="true">Sound On</button>
+                    </div>
+
+                    <div class="py-10 text-center sm:py-12">
+                        <div id="phase-title" class="text-5xl font-black uppercase tracking-normal text-white sm:text-6xl">Tabata</div>
+                        <div id="time-display" class="mt-4 text-8xl font-black leading-none tracking-normal text-white sm:text-9xl">0:20</div>
+                        <div id="round-display" class="mt-5 text-xl font-bold text-white/84">8 rounds</div>
+                    </div>
+
+                    <div class="timer-progress h-3 overflow-hidden rounded-full" aria-hidden="true">
+                        <span id="phase-progress" class="block h-full rounded-full" style="transform: scaleX(1);"></span>
+                    </div>
+
+                    <div id="round-pills" class="mt-5 grid grid-cols-8 gap-2" aria-label="Round progress"></div>
+
+                    <div class="mt-8 grid grid-cols-2 gap-3">
+                        <button id="primary-action" class="glass-button rounded-xl px-5 py-4 text-base font-black" type="button">Start</button>
+                        <button id="reset-action" class="ghost-button rounded-xl px-5 py-4 text-base font-black" type="button">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section aria-label="Workout details" class="stat-band my-10 py-9">
+            <div class="container mx-auto grid gap-6 px-6 text-center sm:grid-cols-3">
+                <div>
+                    <div class="text-3xl font-black text-white">4:00</div>
+                    <div class="mt-1 text-sm font-semibold text-white/68">total timer</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-white">8</div>
+                    <div class="mt-1 text-sm font-semibold text-white/68">fixed rounds</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-white">20 / 10</div>
+                    <div class="mt-1 text-sm font-semibold text-white/68">work and rest</div>
+                </div>
+            </div>
+        </section>
+
+        <section aria-label="Features" class="container mx-auto px-6 py-14">
+            <h2 class="text-center text-3xl font-black md:text-4xl">Built for the interval</h2>
+
+            <div class="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+                <article class="feature-card rounded-lg p-6">
+                    <div class="text-3xl font-black text-orange-200">20</div>
+                    <h3 class="mt-4 text-lg font-bold">Work blocks</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/68">Each round starts with a focused 20-second push, shown in the same orange gradient as the app.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <div class="text-3xl font-black text-sky-200">10</div>
+                    <h3 class="mt-4 text-lg font-bold">Rest blocks</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/68">Short 10-second rest windows keep the rhythm obvious without adding setup choices.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <div class="text-3xl font-black text-emerald-200">AW</div>
+                    <h3 class="mt-4 text-lg font-bold">Watch companion</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/68">The watch mirrors the iPhone timer and can start, pause, reset, and toggle sound.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <div class="text-3xl font-black text-white">BEEP</div>
+                    <h3 class="mt-4 text-lg font-bold">Switch cues</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/68">Sounds count down the final work and rest seconds; Apple Watch adds haptics.</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-label="Frequently asked questions" class="container mx-auto px-6 py-14">
+            <h2 class="text-center text-3xl font-black md:text-4xl">FAQ</h2>
+
+            <div class="mx-auto mt-10 max-w-2xl space-y-5">
+                <article class="feature-card rounded-lg p-6">
+                    <h3 class="font-bold">Can I customize the workout?</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/70">Not currently. Tabata Ticker is intentionally fixed to the classic 8-round, 20-second work, 10-second rest format.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <h3 class="font-bold">Does the Watch run the timer by itself?</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/70">The iPhone owns the timer. Apple Watch mirrors the current state and sends control commands back to the phone.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <h3 class="font-bold">When will it be on the App Store?</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/70">The App Store link is coming soon. This page is ready for the link once the listing is live.</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-label="Get Tabata Ticker" class="container mx-auto px-6 py-14">
+            <div class="mx-auto max-w-2xl text-center">
+                <img src="icon-180.png" alt="" class="mx-auto mb-5 h-16 w-16 rounded-[18px] shadow-2xl">
+                <h2 class="text-3xl font-black md:text-4xl">Ready when the set starts.</h2>
+                <p class="mx-auto mt-4 max-w-xl text-white/70">Launch, start, and follow the color, sound, and haptic cues through the full four-minute workout.</p>
+                <div class="mt-8 inline-block rounded-xl bg-white/90 px-8 py-4 font-black text-slate-900 shadow-xl">
+                    App Store
+                    <span class="block text-sm font-semibold opacity-70">Coming Soon</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="container mx-auto px-6 py-12 text-center text-sm text-white/54">
+        <div class="mb-2 text-lg font-bold text-white">Tabata Ticker</div>
+        <p class="mb-5">Made by <a href="https://merimerimeri.com/" class="support-link hover:text-white">MeriMeriMeri Software</a></p>
+        <nav aria-label="Footer" class="mb-5 flex justify-center gap-6">
+            <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+            <a href="mailto:support@merimerimeri.com" class="hover:text-white">Support</a>
+        </nav>
+        <p>&copy; 2026 MeriMeriMeri Software LLC</p>
+    </footer>
+
+<script>
+(function() {
+    const CONFIG = { rounds: 8, work: 20, rest: 10 };
+    const shell = document.getElementById('timer-shell');
+    const phaseTitle = document.getElementById('phase-title');
+    const timeDisplay = document.getElementById('time-display');
+    const roundDisplay = document.getElementById('round-display');
+    const progress = document.getElementById('phase-progress');
+    const primaryAction = document.getElementById('primary-action');
+    const resetAction = document.getElementById('reset-action');
+    const soundToggle = document.getElementById('sound-toggle');
+    const roundPills = document.getElementById('round-pills');
+
+    let phase = 'idle';
+    let round = 0;
+    let isRunning = false;
+    let phaseDuration = CONFIG.work;
+    let remaining = CONFIG.work;
+    let phaseStartedAt = 0;
+    let soundEnabled = true;
+    let tickHandle = null;
+    let audioContext = null;
+    let lastCueKey = '';
+
+    function nowSeconds() {
+        return performance.now() / 1000;
+    }
+
+    function ensureAudio() {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+    }
+
+    function beep(frequency, duration) {
+        if (!soundEnabled) return;
+        ensureAudio();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+        gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.18, audioContext.currentTime + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+    }
+
+    function formatTime(value) {
+        const seconds = Math.max(0, Math.ceil(value));
+        return '0:' + String(seconds).padStart(2, '0');
+    }
+
+    function activePhaseForDisplay() {
+        if ((phase === 'work' || phase === 'rest') && !isRunning) return 'paused';
+        return phase;
+    }
+
+    function phaseLabel() {
+        if ((phase === 'work' || phase === 'rest') && !isRunning) return 'PAUSED';
+        if (phase === 'idle') return 'Tabata';
+        if (phase === 'complete') return 'DONE';
+        return phase.toUpperCase();
+    }
+
+    function roundLabel() {
+        if (phase === 'idle') return CONFIG.rounds + ' rounds';
+        if (phase === 'complete') return 'Complete';
+        return 'Round ' + round + ' of ' + CONFIG.rounds;
+    }
+
+    function primaryLabel() {
+        if (phase === 'idle') return 'Start';
+        if (phase === 'complete') return 'Back Home';
+        return isRunning ? 'Pause' : 'Resume';
+    }
+
+    function renderRoundPills() {
+        roundPills.innerHTML = '';
+        for (let i = 1; i <= CONFIG.rounds; i++) {
+            const pill = document.createElement('div');
+            pill.className = 'round-pill h-3 rounded-full';
+            if (phase === 'complete' || i < round) {
+                pill.classList.add('is-done');
+            } else if (i === round && (phase === 'work' || phase === 'rest')) {
+                pill.classList.add('is-current');
+            }
+            roundPills.appendChild(pill);
+        }
+    }
+
+    function render() {
+        shell.dataset.phase = activePhaseForDisplay();
+        phaseTitle.textContent = phaseLabel();
+        timeDisplay.textContent = formatTime(phase === 'complete' ? 0 : remaining);
+        roundDisplay.textContent = roundLabel();
+        primaryAction.textContent = primaryLabel();
+        soundToggle.textContent = soundEnabled ? 'Sound On' : 'Sound Off';
+        soundToggle.setAttribute('aria-pressed', String(soundEnabled));
+
+        const ratio = phaseDuration > 0 ? Math.max(0, Math.min(1, remaining / phaseDuration)) : 0;
+        progress.style.transform = 'scaleX(' + ratio + ')';
+        renderRoundPills();
+    }
+
+    function startWorkout() {
+        phase = 'work';
+        round = 1;
+        phaseDuration = CONFIG.work;
+        remaining = CONFIG.work;
+        phaseStartedAt = nowSeconds();
+        isRunning = true;
+        lastCueKey = '';
+        startTicking();
+        render();
+    }
+
+    function pauseWorkout() {
+        updateRemaining();
+        isRunning = false;
+        stopTicking();
+        render();
+    }
+
+    function resumeWorkout() {
+        phaseStartedAt = nowSeconds() - (phaseDuration - remaining);
+        isRunning = true;
+        startTicking();
+        render();
+    }
+
+    function resetWorkout() {
+        phase = 'idle';
+        round = 0;
+        isRunning = false;
+        phaseDuration = CONFIG.work;
+        remaining = CONFIG.work;
+        phaseStartedAt = 0;
+        lastCueKey = '';
+        stopTicking();
+        render();
+    }
+
+    function completeWorkout() {
+        phase = 'complete';
+        round = CONFIG.rounds;
+        isRunning = false;
+        phaseDuration = 0;
+        remaining = 0;
+        stopTicking();
+        beep(1320, 0.18);
+        render();
+    }
+
+    function advancePhase() {
+        if (phase === 'work') {
+            phase = 'rest';
+            phaseDuration = CONFIG.rest;
+            remaining = CONFIG.rest;
+            phaseStartedAt += CONFIG.work;
+            lastCueKey = '';
+            beep(1320, 0.16);
+        } else if (phase === 'rest' && round < CONFIG.rounds) {
+            round += 1;
+            phase = 'work';
+            phaseDuration = CONFIG.work;
+            remaining = CONFIG.work;
+            phaseStartedAt += CONFIG.rest;
+            lastCueKey = '';
+            beep(1320, 0.16);
+        } else {
+            completeWorkout();
+        }
+    }
+
+    function updateRemaining() {
+        if (!isRunning || phase === 'idle' || phase === 'complete') return;
+        remaining = Math.max(0, phaseDuration - (nowSeconds() - phaseStartedAt));
+
+        while (remaining <= 0 && isRunning) {
+            advancePhase();
+            if (isRunning) {
+                remaining = Math.max(0, phaseDuration - (nowSeconds() - phaseStartedAt));
+            }
+        }
+    }
+
+    function maybePlayCountdownCue() {
+        if (!isRunning || (phase !== 'work' && phase !== 'rest')) return;
+        const threshold = phase === 'work' ? 5 : 3;
+        const cueSecond = Math.ceil(remaining);
+        if (cueSecond > threshold || cueSecond <= 0) return;
+        const cueKey = phase + '-' + round + '-' + cueSecond;
+        if (cueKey === lastCueKey) return;
+        lastCueKey = cueKey;
+        beep(880, 0.08);
+    }
+
+    function tick() {
+        updateRemaining();
+        maybePlayCountdownCue();
+        render();
+    }
+
+    function startTicking() {
+        if (tickHandle) return;
+        tickHandle = window.setInterval(tick, 100);
+    }
+
+    function stopTicking() {
+        if (!tickHandle) return;
+        window.clearInterval(tickHandle);
+        tickHandle = null;
+    }
+
+    primaryAction.addEventListener('click', function() {
+        if (soundEnabled) ensureAudio();
+        if (phase === 'idle' || phase === 'complete') {
+            phase === 'complete' ? resetWorkout() : startWorkout();
+        } else if (isRunning) {
+            pauseWorkout();
+        } else {
+            resumeWorkout();
+        }
+    });
+
+    resetAction.addEventListener('click', resetWorkout);
+
+    soundToggle.addEventListener('click', function() {
+        soundEnabled = !soundEnabled;
+        if (soundEnabled) {
+            ensureAudio();
+            beep(880, 0.06);
+        }
+        render();
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>
