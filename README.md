@@ -60,18 +60,17 @@ Deploy this repo the same way as the MenuMines site:
 3. Set the Pages source to deploy from the `main` branch.
 4. Keep `dist/styles.css` committed.
 
-Until a custom domain is ready, the site is configured for:
+The site is configured for:
 
 ```text
-https://smeriwether.github.io/tabataticker-site/
+https://tabataticker.merimerimeri.com/
 ```
 
-When a domain is chosen:
+Custom domain setup:
 
-- Add a `CNAME` file containing the domain.
-- Update `index.html` canonical/Open Graph URLs.
-- Update `robots.txt`.
-- Update `sitemap.xml`.
+- DNS should include a `CNAME` record for `tabataticker` pointing to `smeriwether.github.io`.
+- The repo-root `CNAME` file contains `tabataticker.merimerimeri.com`.
+- GitHub Pages should be configured with `tabataticker.merimerimeri.com` as the custom domain.
 
 ## App Store Link
 
