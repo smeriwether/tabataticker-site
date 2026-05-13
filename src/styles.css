@@ -88,9 +88,20 @@ a {
     backdrop-filter: blur(14px);
 }
 
-.coming-soon {
+.app-store-link {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.76));
     color: #0f172a;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.app-store-link:hover {
+    background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.88));
+    transform: translateY(-1px);
+}
+
+.app-store-link:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
 }
 
 .round-pill {

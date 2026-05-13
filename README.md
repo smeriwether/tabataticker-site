@@ -74,11 +74,13 @@ Custom domain setup:
 
 ## App Store Link
 
-The current page intentionally shows the App Store call to action as "Coming Soon." When the App Store listing is live:
+The live App Store listing is:
 
-- Replace the disabled App Store blocks in `index.html` with real links.
-- Add an `apple-itunes-app` smart-banner meta tag if desired.
-- Update structured data availability if needed.
+```text
+https://apps.apple.com/us/app/tabata-ticker/id6768484593
+```
+
+The home page uses that URL for both App Store call-to-action links, the FAQ App Store link, the iOS smart-banner meta tag, and the structured data download URL.
 
 ## Project Structure
 
