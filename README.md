@@ -92,6 +92,7 @@ The home page uses that URL for both App Store call-to-action links, the FAQ App
 │   └── styles.css       # Generated CSS, committed for GitHub Pages
 ├── index.html           # Main marketing page and playable timer
 ├── privacy.html         # Privacy policy
+├── app-store-badge.svg  # Official App Store download badge
 ├── icon-1024.png        # App icon source copy
 ├── icon-180.png         # Apple touch icon
 ├── icon-128.png         # Smaller app icon
