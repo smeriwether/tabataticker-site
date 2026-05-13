@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabata Ticker - 4-Minute Tabata Timer for iPhone and Apple Watch</title>
-    <meta name="description" content="Tabata Ticker is a focused iPhone and Apple Watch timer for classic 8-round Tabata workouts: 20 seconds work, 10 seconds rest, with sound and haptic cues.">
+    <title>Tabata Ticker - Custom Tabata Timer for iPhone, iPad, and Apple Watch</title>
+    <meta name="description" content="Tabata Ticker is a focused iPhone, iPad, and Apple Watch timer for classic Tabata workouts and custom presets with sound and haptic cues.">
     <link rel="canonical" href="https://tabataticker.merimerimeri.com/">
     <meta name="theme-color" content="#088580">
-    <meta property="og:title" content="Tabata Ticker - 4-Minute Tabata Timer">
-    <meta property="og:description" content="A focused Tabata timer for iPhone, iPad, and Apple Watch.">
+    <meta property="og:title" content="Tabata Ticker - Custom Tabata Timer">
+    <meta property="og:description" content="A focused Tabata timer with custom presets for iPhone, iPad, and Apple Watch.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tabataticker.merimerimeri.com/">
     <meta property="og:site_name" content="Tabata Ticker">
@@ -16,8 +16,8 @@
     <meta name="apple-itunes-app" content="app-id=6768484593">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Tabata Ticker - 4-Minute Tabata Timer">
-    <meta name="twitter:description" content="A focused iPhone and Apple Watch timer for classic 20/10 Tabata workouts.">
+    <meta name="twitter:title" content="Tabata Ticker - Custom Tabata Timer">
+    <meta name="twitter:description" content="A focused timer with custom presets for iPhone, iPad, and Apple Watch.">
     <meta name="twitter:image" content="https://tabataticker.merimerimeri.com/icon-1024.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -30,14 +30,14 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Tabata Ticker",
-        "description": "A focused iPhone and Apple Watch timer for classic 8-round Tabata workouts: 20 seconds work and 10 seconds rest.",
-        "operatingSystem": "iOS, watchOS",
+        "description": "A focused iPhone, iPad, and Apple Watch timer for classic Tabata workouts and custom presets.",
+        "operatingSystem": "iOS, iPadOS, watchOS",
         "applicationCategory": "HealthApplication",
         "downloadUrl": "https://apps.apple.com/us/app/tabata-ticker/id6768484593",
         "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
-            "price": "0",
+            "price": "0.99",
             "priceCurrency": "USD"
         }
     }
@@ -50,10 +50,18 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "What workout does Tabata Ticker run?",
+                "name": "Can I customize the workout?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tabata Ticker runs a fixed classic Tabata workout: 8 rounds of 20 seconds work and 10 seconds rest."
+                    "text": "Yes. Tabata Ticker includes the classic 20 seconds work, 10 seconds rest, 8 round preset, and lets you create custom presets with your own work time, rest time, and round count."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it one purchase for iPhone, iPad, and Apple Watch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Tabata Ticker is a single $0.99 purchase that includes the iPhone, iPad, and Apple Watch app."
                 }
             },
             {
@@ -78,18 +86,52 @@
 </head>
 <body class="site-bg text-gray-100 min-h-screen">
 
-    <header class="container mx-auto px-6 pt-10 pb-8 text-center">
-        <img src="icon-180.png" alt="Tabata Ticker app icon" class="mx-auto mb-6 h-20 w-20 rounded-[22px] shadow-2xl">
+    <header class="container mx-auto px-6 pt-10 pb-10 text-center">
+        <div class="mx-auto max-w-3xl">
+            <img src="icon-180.png" alt="Tabata Ticker app icon" class="mx-auto mb-6 h-20 w-20 rounded-[22px] shadow-2xl">
 
-        <h1 class="text-4xl md:text-6xl font-black tracking-normal text-white">Tabata Ticker</h1>
-        <p class="mx-auto mt-5 max-w-2xl text-lg md:text-xl text-white/82">
-            A focused Tabata timer for iPhone, iPad, and Apple Watch.
-        </p>
+            <h1 class="text-4xl md:text-6xl font-black tracking-normal text-white">Tabata Ticker</h1>
+            <p class="mx-auto mt-5 max-w-2xl text-lg md:text-xl text-white/84">
+                A focused Tabata timer for iPhone, iPad, and Apple Watch. Start with the classic 20/10/8 preset, or save custom workouts with your own work time, rest time, and rounds.
+            </p>
 
-        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a class="app-store-badge-link inline-flex" href="https://apps.apple.com/us/app/tabata-ticker/id6768484593" target="_blank" rel="noopener" aria-label="Download Tabata Ticker on the App Store">
-                <img src="app-store-badge.svg" alt="Download on the App Store" width="240" height="80" class="app-store-badge">
-            </a>
+            <div class="hero-pills mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-white/84">
+                <span>Custom presets</span>
+                <span>Watch controls</span>
+                <span>$0.99 once</span>
+            </div>
+
+            <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a class="app-store-badge-link inline-flex" href="https://apps.apple.com/us/app/tabata-ticker/id6768484593" target="_blank" rel="noopener" aria-label="Download Tabata Ticker on the App Store">
+                    <img src="app-store-badge.svg" alt="Download on the App Store" width="240" height="80" class="app-store-badge">
+                </a>
+            </div>
+        </div>
+
+        <div class="device-showcase mx-auto mt-8" aria-label="Tabata Ticker app screenshots">
+            <div class="iphone-shell iphone-side iphone-rest">
+                <img src="assets/screenshots/iphone-rest.png" alt="Tabata Ticker rest countdown on iPhone" width="554" height="1200">
+            </div>
+
+            <div class="iphone-shell iphone-main">
+                <img src="assets/screenshots/iphone-main.png" alt="Tabata Ticker custom preset selector on iPhone" width="554" height="1200">
+            </div>
+
+            <div class="device-pair">
+                <div class="iphone-shell iphone-side iphone-work">
+                    <img src="assets/screenshots/iphone-work.png" alt="Tabata Ticker work countdown on iPhone" width="554" height="1200">
+                </div>
+
+                <div class="watch-shell" aria-label="Tabata Ticker Apple Watch app screenshot">
+                    <span class="watch-band watch-band-top" aria-hidden="true"></span>
+                    <div class="watch-case">
+                        <span class="watch-crown" aria-hidden="true"></span>
+                        <span class="watch-button" aria-hidden="true"></span>
+                        <img src="assets/screenshots/watch-home.png" alt="Tabata Ticker on Apple Watch" width="587" height="700">
+                    </div>
+                    <span class="watch-band watch-band-bottom" aria-hidden="true"></span>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -99,7 +141,7 @@
             <div class="mx-auto max-w-lg">
                 <div id="timer-shell" class="phase-panel rounded-[28px] p-6 sm:p-8" data-phase="idle">
                     <div class="flex items-center justify-between gap-4">
-                        <span class="text-sm font-bold uppercase tracking-[0.18em] text-white/78">Classic</span>
+                        <span class="text-sm font-bold uppercase tracking-[0.18em] text-white/78">Classic 20/10/8</span>
                         <button id="sound-toggle" class="ghost-button rounded-full px-4 py-2 text-xs font-bold" type="button" aria-pressed="true">Sound On</button>
                     </div>
 
@@ -129,7 +171,12 @@
             <div class="mx-auto mt-10 max-w-2xl space-y-5">
                 <article class="feature-card rounded-lg p-6">
                     <h3 class="font-bold">Can I customize the workout?</h3>
-                    <p class="mt-2 text-sm leading-6 text-white/70">Not currently. Tabata Ticker is intentionally fixed to the classic 8-round, 20-second work, 10-second rest format.</p>
+                    <p class="mt-2 text-sm leading-6 text-white/70">Yes. Keep the classic 20/10/8 preset, or create custom presets with your own work time, rest time, and round count.</p>
+                </article>
+
+                <article class="feature-card rounded-lg p-6">
+                    <h3 class="font-bold">Is it one purchase for all devices?</h3>
+                    <p class="mt-2 text-sm leading-6 text-white/70">Yes. Tabata Ticker is a single $0.99 purchase for iPhone, iPad, and Apple Watch.</p>
                 </article>
 
                 <article class="feature-card rounded-lg p-6">
@@ -148,7 +195,7 @@
             <div class="mx-auto max-w-2xl text-center">
                 <img src="icon-180.png" alt="" class="mx-auto mb-5 h-16 w-16 rounded-[18px] shadow-2xl">
                 <h2 class="text-3xl font-black md:text-4xl">Ready when the set starts.</h2>
-                <p class="mx-auto mt-4 max-w-xl text-white/70">Launch, start, and follow the color, sound, and haptic cues through the full tabata workout.</p>
+                <p class="mx-auto mt-4 max-w-xl text-white/70">Choose a saved preset, start, and follow the color, sound, and haptic cues through the full tabata workout.</p>
                 <a class="app-store-badge-link mx-auto mt-8 inline-flex" href="https://apps.apple.com/us/app/tabata-ticker/id6768484593" target="_blank" rel="noopener" aria-label="Download Tabata Ticker on the App Store">
                     <img src="app-store-badge.svg" alt="Download on the App Store" width="240" height="80" class="app-store-badge">
                 </a>

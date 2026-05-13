@@ -109,6 +109,163 @@ a {
     width: 240px;
 }
 
+.hero-pills span {
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    padding: 0.55rem 0.85rem;
+}
+
+.device-showcase {
+    align-items: flex-end;
+    display: flex;
+    gap: clamp(0.75rem, 3vw, 2rem);
+    justify-content: center;
+    max-width: 1040px;
+    padding-bottom: 2.4rem;
+    position: relative;
+}
+
+.device-showcase::before {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+    border-radius: 999px;
+    bottom: 0.5rem;
+    content: "";
+    height: 1px;
+    left: 12%;
+    position: absolute;
+    right: 12%;
+}
+
+.iphone-shell {
+    background: linear-gradient(145deg, #31343b 0%, #0a0b0f 58%, #050507 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 46px;
+    box-shadow: 0 28px 70px rgba(3, 7, 24, 0.36);
+    flex: 0 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.iphone-shell::before {
+    background: #050507;
+    border-radius: 0 0 18px 18px;
+    content: "";
+    height: 22px;
+    left: 50%;
+    position: absolute;
+    top: 10px;
+    transform: translateX(-50%);
+    width: 34%;
+    z-index: 2;
+}
+
+.iphone-shell::after {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 38px;
+    content: "";
+    inset: 10px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+}
+
+.iphone-shell img,
+.watch-case img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.iphone-shell img {
+    border-radius: 36px;
+}
+
+.iphone-main {
+    transform: translateY(8px);
+    width: clamp(210px, 24vw, 286px);
+    z-index: 4;
+}
+
+.iphone-side {
+    width: clamp(138px, 16vw, 190px);
+    z-index: 2;
+}
+
+.iphone-rest {
+    transform: translateY(30px) rotate(-5deg);
+}
+
+.iphone-work {
+    transform: translateY(38px) rotate(4deg);
+}
+
+.device-pair {
+    align-items: flex-end;
+    display: flex;
+    gap: clamp(0.35rem, 1.8vw, 1rem);
+    position: relative;
+}
+
+.watch-shell {
+    flex: 0 0 auto;
+    transform: translate(-1.5rem, 28px);
+    width: clamp(128px, 12vw, 160px);
+    z-index: 5;
+}
+
+.watch-band {
+    background: linear-gradient(90deg, #1f232b, #090a0d 58%, #242832);
+    display: block;
+    height: 34px;
+    margin-inline: auto;
+    width: 52%;
+}
+
+.watch-band-top {
+    border-radius: 18px 18px 7px 7px;
+    margin-bottom: -8px;
+}
+
+.watch-band-bottom {
+    border-radius: 7px 7px 18px 18px;
+    margin-top: -8px;
+}
+
+.watch-case {
+    background: linear-gradient(145deg, #363942, #07080b 60%, #030305);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 42px;
+    box-shadow: 0 22px 54px rgba(3, 7, 24, 0.34);
+    padding: 9px;
+    position: relative;
+}
+
+.watch-case img {
+    border-radius: 34px;
+}
+
+.watch-crown,
+.watch-button {
+    background: linear-gradient(180deg, #494d57, #15171d);
+    position: absolute;
+    right: -7px;
+}
+
+.watch-crown {
+    border-radius: 8px;
+    height: 34px;
+    top: 38%;
+    width: 9px;
+}
+
+.watch-button {
+    border-radius: 5px;
+    height: 28px;
+    top: 57%;
+    width: 6px;
+}
+
 .round-pill {
     background: rgba(255, 255, 255, 0.24);
     border: 1px solid rgba(255, 255, 255, 0.22);
@@ -153,5 +310,57 @@ a {
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 720px) {
+    .device-showcase {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        max-width: 390px;
+        padding-bottom: 1rem;
+    }
+
+    .device-showcase::before {
+        display: none;
+    }
+
+    .device-pair {
+        display: contents;
+    }
+
+    .iphone-main {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        transform: none;
+        width: min(68vw, 252px);
+    }
+
+    .iphone-side {
+        width: min(34vw, 132px);
+    }
+
+    .iphone-rest {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .iphone-work {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .iphone-rest,
+    .iphone-work {
+        transform: none;
+    }
+
+    .watch-shell {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        transform: none;
+        width: min(32vw, 128px);
     }
 }

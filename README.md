@@ -1,20 +1,22 @@
 # Tabata Ticker Marketing Site
 
-Marketing website for Tabata Ticker, a minimal iPhone and Apple Watch Tabata timer.
+Marketing website for Tabata Ticker, a focused iPhone, iPad, and Apple Watch Tabata timer.
 
 ## Overview
 
-Tabata Ticker runs the classic Tabata workout:
+Tabata Ticker runs the classic Tabata workout and supports saved custom presets:
 
 - 8 rounds
 - 20 seconds work
 - 10 seconds rest
+- Custom work time, rest time, and round count presets
 - iPhone owns the timer
 - Apple Watch mirrors the timer and sends start, pause, reset, and sound commands
 - Sound cues run during the final 5 work seconds and final 3 rest seconds
 - Apple Watch pairs cues with haptics
+- Single $0.99 App Store purchase for iPhone, iPad, and Apple Watch
 
-The page also includes a playable four-minute Tabata timer as a small easter egg, similar to the playable Minesweeper preview on the MenuMines site.
+The page also includes real app screenshots in CSS-rendered iPhone and Apple Watch shells, plus a playable four-minute Tabata timer as a small easter egg, similar to the playable Minesweeper preview on the MenuMines site.
 
 ## Tech Stack
 
@@ -90,6 +92,8 @@ The home page uses that URL for both App Store call-to-action links, the FAQ App
 │   └── styles.css       # Tailwind source and custom styles
 ├── dist/
 │   └── styles.css       # Generated CSS, committed for GitHub Pages
+├── assets/
+│   └── screenshots/     # Resized app screenshots used in device shells
 ├── index.html           # Main marketing page and playable timer
 ├── privacy.html         # Privacy policy
 ├── app-store-badge.svg  # Official App Store download badge
