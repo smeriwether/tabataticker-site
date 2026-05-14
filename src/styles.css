@@ -339,27 +339,12 @@ a {
     }
 
     .iphone-side {
-        width: min(34vw, 132px);
-    }
-
-    .iphone-rest {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .iphone-work {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .iphone-rest,
-    .iphone-work {
-        transform: none;
+        display: none;
     }
 
     .watch-shell {
         grid-column: 1 / -1;
-        grid-row: 3;
+        grid-row: 2;
         transform: none;
         width: min(32vw, 128px);
     }
